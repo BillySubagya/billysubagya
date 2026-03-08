@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billy Subagya | Personal Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#d8caa6;
+      --bg2:#cbb98f;
+      --primary:#2f5d7c;
+      --accent:#4fa3d1;
+      --glass:rgba(255,255,255,0.25);
+      --glass-strong:rgba(255,255,255,0.35);
+      --border:rgba(255,255,255,0.4);
+      --text:#1f2933;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    .container{
+      width:min(1200px,92%);
+      margin:auto;
+    }
+
+    /* NAVBAR */
+    nav{
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(12px);
+      background:var(--glass);
+      border-bottom:1px solid var(--border);
+      z-index:10;
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      font-weight:700;
+      font-size:22px;
+      letter-spacing:.5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--text);
+      font-weight:500;
+      opacity:.85;
+    }
+
+    .nav-links a:hover{opacity:1}
+
+    /* HERO */
+    .hero{
+      padding:90px 0 60px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero-card{
+      backdrop-filter: blur(18px);
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:48px;
+      box-shadow:0 10px 40px rgba(0,0,0,.08);
+    }
+
+    .hero h1{
+      font-size:44px;
+      line-height:1.2;
+      margin-bottom:18px;
+    }
+
+    .hero h1 span{color:var(--primary)}
+
+    .hero p{
+      margin-bottom:28px;
+      line-height:1.7;
+      opacity:.85;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 26px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      box-shadow:0 8px 18px rgba(47,93,124,.35);
+    }
+
+    .profile-wrap{
+      display:flex;
+      justify-content:center;
+    }
+
+    .profile-card{
+      width:320px;
+      aspect-ratio:3/4;
+      border-radius:30px;
+      backdrop-filter: blur(18px);
+      background:var(--glass-strong);
+      border:1px solid var(--border);
+      box-shadow:0 10px 40px rgba(0,0,0,.1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      font-weight:600;
+    }
+
+    /* SKILLS */
+    .section{
+      padding:70px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:28px;
+      margin-bottom:40px;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      gap:28px;
+    }
+
+    .skills{
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    }
+
+    .card{
+      backdrop-filter: blur(16px);
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:0 8px 28px rgba(0,0,0,.06);
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:18px;
+    }
+
+    .card p{
+      font-size:14px;
+      opacity:.8;
+      margin-bottom:18px;
+    }
+
+    .bar{
+      height:10px;
+      background:rgba(0,0,0,.08);
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .fill{
+      height:100%;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      border-radius:20px;
+    }
+
+    /* PROJECTS */
+    .projects{
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+
+    .project-thumb{
+      height:150px;
+      border-radius:16px;
+      background:linear-gradient(135deg,rgba(255,255,255,.35),rgba(255,255,255,.15));
+      margin-bottom:14px;
+    }
+
+    /* TOOLS */
+    .tools{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+    }
+
+    .tool{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter: blur(16px);
+      background:var(--glass);
+      border:1px solid var(--border);
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:80px;
+      backdrop-filter: blur(14px);
+      background:var(--glass);
+      border-top:1px solid var(--border);
+    }
+
+    .footer-inner{
+      padding:28px 0;
+      text-align:center;
+      font-size:14px;
+      opacity:.8;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:60px;
+      }
+      .hero h1{font-size:34px}
+      .hero-card{padding:34px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">BillySubagya</div>
+      <div class="nav-links">
+        <a href="#">Beranda</a>
+        <a href="#projects">Project</a>
+        <a href="#tools">Tools</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Solving <span>modern problems</span><br>through design</h1>
+        <p>
+          Halo, saya <strong>Billy Subagya</strong>. Saya membantu brand berkembang melalui
+          UI/UX design, web development, dan solusi kreatif digital modern.
+        </p>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+      <div class="profile-wrap">
+        <div class="profile-card">
+          FOTO PROFIL<br>
+          (Tambahkan foto Anda)
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Keahlian</h2>
+      <div class="grid skills">
+        <div class="card">
+          <h3>UI/UX Design</h3>
+          <p>Modern, clean, dan user-friendly design solutions.</p>
+          <div class="bar"><div class="fill" style="width:90%"></div></div>
+        </div>
+        <div class="card">
+          <h3>Digital Creator</h3>
+          <p>Konten kreatif untuk sosial media & platform digital.</p>
+          <div class="bar"><div class="fill" style="width:80%"></div></div>
+        </div>
+        <div class="card">
+          <h3>Graphic Design</h3>
+          <p>Logo, poster, dan branding visual profesional.</p>
+          <div class="bar"><div class="fill" style="width:85%"></div></div>
+        </div>
+        <div class="card">
+          <h3>Video Editing</h3>
+          <p>Editing foto & video menggunakan tools profesional.</p>
+          <div class="bar"><div class="fill" style="width:75%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">My Projects</h2>
+      <div class="grid projects">
+        <div class="card">
+          <div class="project-thumb"></div>
+          <h3>Project 1</h3>
+          <p>Deskripsi singkat project Anda.</p>
+        </div>
+        <div class="card">
+          <div class="project-thumb"></div>
+          <h3>Project 2</h3>
+          <p>Deskripsi singkat project Anda.</p>
+        </div>
+        <div class="card">
+          <div class="project-thumb"></div>
+          <h3>Project 3</h3>
+          <p>Deskripsi singkat project Anda.</p>
+        </div>
+        <div class="card">
+          <div class="project-thumb"></div>
+          <h3>Project 4</h3>
+          <p>Deskripsi singkat project Anda.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <h2 class="section-title">My Tools</h2>
+      <div class="tools">
+        <div class="tool">Ps</div>
+        <div class="tool">Ai</div>
+        <div class="tool">Pr</div>
+        <div class="tool">Xd</div>
+        <div class="tool">Vs</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      © 2026 Billy Subagya — Personal Website
+    </div>
+  </footer>
+
+</body>
+</html>
